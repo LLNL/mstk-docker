@@ -11,3 +11,19 @@ Samuel Eklund - sam@llnl.gov
 1. Make sure you have docker installed (https://www.docker.com/community-edition)
 1. Run ./docker-build.sh to build the container.
 1. Run ./docker-run.sh to launch the container.
+
+#### Options
+
+You can specify the operating system when building and running the scripts. For example:
+
+`./docker-build.sh ubuntu_16_04`
+
+or
+
+`./docker-run.sh centos`
+
+Available operating systems:
+- Ubuntu 14.04: ubuntu_14_04 (not yet supported)
+- Ubuntu 16.04: ubuntu_16_04 (default; omit argument to select)
+- CentOS 7: centos
+- Debian: debian (not yet supported)
