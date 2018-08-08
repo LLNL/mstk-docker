@@ -1,5 +1,6 @@
 # Ignore
 .DS_STORE
+.vscode/
 Toolkit-zip-files/*
 
 # Do not ignore (keep)
