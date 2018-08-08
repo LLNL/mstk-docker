@@ -22,7 +22,6 @@ COPY $zip_file $zip_file
 RUN unzip $zip_file
 # Note: $os_folder var comes from OS-specific Dockerfile
 WORKDIR /$toolkit_dir/$V_TOOLKIT_VERSION/$os_folder/
-# RUN pwd && ls && sleep 3
 RUN tar -xf $toolkit_gzip
 WORKDIR /$toolkit_dir/$V_TOOLKIT_VERSION/$os_folder/$toolkit_folder
 RUN python3 setup.py install
