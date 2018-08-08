@@ -1,0 +1,6 @@
+# Ignore
+.DS_STORE
+Toolkit-zip-files/*
+
+# Do not ignore (keep)
+!Toolkit_zip_files/.gitkeep
