@@ -23,7 +23,7 @@ or
 `./docker-run.sh centos`
 
 Available operating systems:
-- Ubuntu 14.04: ubuntu_14_04 (not yet supported)
+- Ubuntu 14.04: ubuntu_14_04
 - Ubuntu 16.04: ubuntu_16_04 (default)
 - CentOS 7: centos
 - Debian: debian
