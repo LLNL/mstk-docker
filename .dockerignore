@@ -1,0 +1,5 @@
+# Stuff to ignore
+.git*
+.vscode
+*.sh
+README.md
