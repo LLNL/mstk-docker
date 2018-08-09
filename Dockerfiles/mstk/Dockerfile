@@ -4,7 +4,7 @@ ARG IMAGE_NAME=mstk-${OS}-base
 FROM $IMAGE_NAME
 
 ARG TOOLKIT_VERSION=1.4.0
-ARG REQUIREMENTS_FILE
+ARG REQUIREMENTS_FILE=requirements.txt
 
 LABEL maintainer='Samuel Eklund sam@llnl.gov'
 
@@ -27,13 +27,6 @@ WORKDIR /$toolkit_dir/$V_TOOLKIT_VERSION/$os_folder/
 RUN tar -xf $toolkit_gzip
 WORKDIR /$toolkit_dir/$V_TOOLKIT_VERSION/$os_folder/$toolkit_folder
 RUN python3 setup.py install
-
-# 
-RUN mkdir /requirements
-WORKDIR /requirements
-COPY $dockerfile_folder/Dockerfile.mstk $REQUIREMENTS_FILE* ./
-RUN if [ -f $REQUIREMENTS_FILE ] ; then echo "file exists" && ls | grep *.txt ; else echo "file does not exist" ; fi
-# pip3 install -r $REQUIREMENTS_FILE ; fi
 
 # Copy test script
 COPY $test_install /$toolkit_dir/$test_install

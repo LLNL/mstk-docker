@@ -14,18 +14,10 @@ OS_CENTOS=centos
 DEBIAN=debian
 OS_UBUNTU_14_04=ubuntu_14_04
 OS_UBUNTU_16_04=ubuntu_16_04
+# Sets default OS to Ubuntu 16.04
+OS=$OS_UBUNTU_16_04
 
 # Set version env vars for file locations and for toolkit version
 DOCKERFILE_FOLDER=Dockerfiles
 TOOLKIT_FOLDER=Toolkit_zip_files
 TOOLKIT_VERSION=1.4.0
-
-# Set OS variable appropriately; defaults to ubuntu_16_04
-case $1 in
-    $OS_CENTOS|$DEBIAN|$OS_UBUNTU_14_04|$OS_UBUNTU_16_04)
-        OS=$1
-        ;;
-    *)
-        OS=$OS_UBUNTU_16_04
-        ;;
-esac

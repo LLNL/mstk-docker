@@ -16,8 +16,8 @@ usage()
     echo "  - debian"
     echo "  - ubuntu_14_04"
     echo -e "  - ubuntu_16_04 (default)\n"
-    echo "-t | --toolkit-version"
-    echo -e "Choose the tookit version when building. Must have a corresponding zip file in Toolkit_zip_files folder.\n"
+    echo "-r | --requirements (required)"
+    echo -e "  Specify a Python requirements file to install packages when building.\n"
     echo "-h | --help"
     echo -e "  Show this help message.\n"
 }
@@ -31,9 +31,9 @@ while [ "$1" != "" ]; do
             shift
             OS=$1
             ;;
-        -t | --toolkit-version )
+        -r | --requirements )
             shift
-            TOOLKIT_VERSION=$1
+            REQUIREMENTS_FILE=$1
             ;;
         -h | --help )
             shift
@@ -44,17 +44,12 @@ while [ "$1" != "" ]; do
     shift
 done
 
-# Check for existence of zip file.
-if [ ! -f Toolkit_zip_files/MI_ScriptingToolkit_v${TOOLKIT_VERSION}.zip ] ; then
-    echo "Must have a corresponding zip file for provided toolkit version (${TOOLKIT_VERSION})"
+if [ -z $REQUIREMENTS_FILE ]; then
+    echo "Must specify a requirements file (-r | --requirements)."
     exit
 fi
 
-# Build docker images
-docker build -t mstk-${OS}-base \
-    -f ${DOCKERFILE_FOLDER}/${OS}/Dockerfile .
-
-docker build --rm -t mstk-${OS} \
+docker build --rm -t mstk-${OS}-custom \
     --build-arg OS=$OS \
-    --build-arg TOOLKIT_VERSION=${TOOLKIT_VERSION} \
-    -f ${DOCKERFILE_FOLDER}/mstk/Dockerfile .
+    --build-arg REQUIREMENTS_FILE=$REQUIREMENTS_FILE \
+    -f ${DOCKERFILE_FOLDER}/custom/Dockerfile .
