@@ -11,7 +11,9 @@
 
 usage()
 {
-    echo -e "\n-o | --operating-system"
+    echo -e "\n-f | --file"
+    echo -e "Pass in a Python script to run in the container.\n"
+    echo "-o | --operating-system"
     echo "  Available operating systems:"
     echo "  - centos"
     echo "  - debian"
@@ -26,6 +28,10 @@ usage()
 
 while [ "$1" != "" ]; do
     case $1 in
+            -f | --file )
+            shift
+            PYTHON_FILE=$1
+            ;;
         -o | --operating-system )
             shift
             OS=$1
@@ -39,4 +45,9 @@ while [ "$1" != "" ]; do
     shift
 done
 
-docker run --rm mstk-$OS
+# Allows loading file into container from any directory
+PYTHON_FILE="$(abspath $PYTHON_FILE)"
+DIR="$(dirname $PYTHON_FILE)"
+FILE="$(basename $PYTHON_FILE)"
+
+docker run -it --rm -v "$DIR":/usr/src/myapp -w /usr/src/myapp mstk-$OS python3 $FILE
