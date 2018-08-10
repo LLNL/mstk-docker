@@ -27,6 +27,10 @@ usage()
     echo -e "  Show this help message.\n"
 }
 
+abspath () {
+    case "$1" in /*)printf "%s\n" "$1";; *)printf "%s\n" "$PWD/$1";; esac; 
+    }
+
 while [ "$1" != "" ]; do
     case $1 in
         -f | --file )
@@ -51,4 +55,9 @@ if [ -z $PYTHON_FILE ]; then
     exit
 fi
 
-docker run -it --rm -v "$PWD":/usr/src/myapp -w /usr/src/myapp mstk-$OS-custom python3 $PYTHON_FILE
+# Allows loading file into container from any directory
+PYTHON_FILE="$(abspath $PYTHON_FILE)"
+DIR="$(dirname $PYTHON_FILE)"
+FILE="$(basename $PYTHON_FILE)"
+
+docker run -it --rm -v "$DIR":/usr/src/myapp -w /usr/src/myapp mstk-$OS-custom python3 $FILE

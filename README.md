@@ -40,8 +40,6 @@ Samuel Eklund - sam@llnl.gov
 
 If you would like to use the custom container you built using the `./custom-docker-build.sh` script, you can run the following command:
 
-`docker run -it --rm -v "$PWD":/usr/src/myapp -w /usr/src/myapp mstk-ubuntu_16_04-custom python3 test_toolkit.py`
+`./custom-docker-run.sh /path/to/test_toolkit.py`
 
 Make sure to replace `test_toolkit.py` with the name of your Python script.
-
-There is a wrapper script available
