@@ -35,3 +35,13 @@ Samuel Eklund - sam@llnl.gov
 - You can specify the version of the toolkit you would like to use. This is only available when building an image and you must have a corresponding zip file in the Toolkit_zip_files folder. Current default is v1.4.0. For example:
 
     `./docker-build.sh -t 1.3.0`
+
+#### Run a custom container
+
+If you would like to use the custom container you built using the `./custom-docker-build.sh` script, you can run the following command:
+
+`docker run -it --rm -v "$PWD":/usr/src/myapp -w /usr/src/myapp mstk-ubuntu_16_04-custom python3 test_toolkit.py`
+
+Make sure to replace `test_toolkit.py` with the name of your Python script.
+
+There is a wrapper script available
