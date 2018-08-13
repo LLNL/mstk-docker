@@ -27,10 +27,6 @@ usage()
     echo -e "  Show this help message.\n"
 }
 
-abspath () {
-    case "$1" in /*)printf "%s\n" "$1";; *)printf "%s\n" "$PWD/$1";; esac; 
-    }
-
 while [ "$1" != "" ]; do
     case $1 in
         -f | --file )
