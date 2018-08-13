@@ -16,8 +16,8 @@ usage()
     echo "  - debian"
     echo "  - ubuntu_14_04"
     echo -e "  - ubuntu_16_04 (default)\n"
-    echo "-t | --toolkit-version"
-    echo -e "Choose the tookit version when building. Must have a corresponding zip file in Toolkit_zip_files folder.\n"
+    # echo "-t | --toolkit-version"
+    # echo -e "Choose the tookit version when building. Must have a corresponding zip file in Toolkit_zip_files folder. Valid options are: "1.4, 1.3".\n"
     echo "-h | --help"
     echo -e "  Show this help message.\n"
 }
@@ -45,7 +45,7 @@ while [ "$1" != "" ]; do
 done
 
 # Check for existence of zip file.
-if [ ! -f Toolkit_zip_files/MI_ScriptingToolkit_v${TOOLKIT_VERSION}.zip ] ; then
+if [ ! -f Toolkit_zip_files/${TOOLKIT_FILENAME} ] ; then
     echo "Must have a corresponding zip file for provided toolkit version (${TOOLKIT_VERSION})"
     exit
 fi

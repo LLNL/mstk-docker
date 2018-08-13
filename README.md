@@ -9,7 +9,8 @@ Samuel Eklund - sam@llnl.gov
 ### Instructions
 
 1. Make sure you have docker installed (https://www.docker.com/community-edition).
-1. Copy the MIScriptingToolkit_vX.X.zip file to the Toolkit_zip_files folder. You may need to rename the file to fit the pattern above.
+1. Download the MIScriptingToolkit from https://mygranta.grantadesign.com/downloads.
+1. Copy the MIScriptingToolkit_vX.X.X.zip file to the Toolkit_zip_files folder. Currently only version 1.4.0 is supported.
 1. Run `./docker-build.sh` to build the container.
     - Run `./custom-docker-build.sh -r /path/to/requirements.txt` to build a custom container.
 1. Run `./docker-run.sh` to launch the container.
@@ -32,10 +33,6 @@ Samuel Eklund - sam@llnl.gov
     - ubuntu_16_04 (Ubuntu 16.04, default)
     - centos (CentOS 7)
     - debian (Debian 8)
-
-- You can specify the version of the toolkit you would like to use. This is only available when building an image and you must have a corresponding zip file in the Toolkit_zip_files folder. Current default is v1.4. For example:
-
-    `./docker-build.sh -t 1.3`
 
 #### Run a custom container and load a custom script
 

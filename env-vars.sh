@@ -20,7 +20,7 @@ OS=$OS_UBUNTU_16_04
 # Set version env vars for file locations and for toolkit version
 DOCKERFILE_FOLDER=Dockerfiles
 TOOLKIT_FOLDER=Toolkit_zip_files
-TOOLKIT_VERSION=1.4.0
+# TOOLKIT_VERSION=1.4.0
 
 # Function to grab the full path of a file, used in run scripts
 abspath () {
