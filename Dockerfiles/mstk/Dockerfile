@@ -11,7 +11,7 @@ LABEL maintainer='Samuel Eklund sam@llnl.gov'
 # Set environment variables
 ENV dockerfile_folder Dockerfiles
 ENV V_TOOLKIT_VERSION v$TOOLKIT_VERSION
-ENV zip_file Toolkit_zip_files/MI_ScriptingToolkit_${V_TOOLKIT_VERSION}.zip
+ENV zip_file Toolkit_zip_files/MI_ScriptingToolkit_${V_TOOLKIT_VERSION}*.zip
 ENV toolkit_folder MIScriptingToolkit-${TOOLKIT_VERSION}
 ENV toolkit_gzip ${toolkit_folder}.tar.gz
 ENV test_install test_toolkit.py
@@ -27,8 +27,3 @@ WORKDIR /$toolkit_dir/$V_TOOLKIT_VERSION/$os_folder/
 RUN tar -xf $toolkit_gzip
 WORKDIR /$toolkit_dir/$V_TOOLKIT_VERSION/$os_folder/$toolkit_folder
 RUN python3 setup.py install
-
-# Copy test script
-COPY $test_install /$toolkit_dir/$test_install
-
-CMD python3 /$toolkit_dir/$test_install

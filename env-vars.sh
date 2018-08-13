@@ -21,3 +21,8 @@ OS=$OS_UBUNTU_16_04
 DOCKERFILE_FOLDER=Dockerfiles
 TOOLKIT_FOLDER=Toolkit_zip_files
 TOOLKIT_VERSION=1.4.0
+
+# Function to grab the full path of a file, used in run scripts
+abspath () {
+    case "$1" in /*)printf "%s\n" "$1";; *)printf "%s\n" "$PWD/$1";; esac; 
+    }

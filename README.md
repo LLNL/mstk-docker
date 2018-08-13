@@ -11,8 +11,9 @@ Samuel Eklund - sam@llnl.gov
 1. Make sure you have docker installed (https://www.docker.com/community-edition)
 1. Copy the MIScriptingToolkitvX.X.X.zip file to the Toolkit_zip_files folder.
 1. Run `./docker-build.sh` to build the container.
-1. Run `./custom-docker-build.sh -r /path/to/requirements.txt` to build a custom container.
-1. Run `./docker-run.sh` to launch the container.
+    - Run `./custom-docker-build.sh -r /path/to/requirements.txt` to build a custom container.
+1. Run `./docker-run.sh -f script.py` to launch the container.
+    - Run `./custom-docker-run.sh -f script.py` to launch the custom container.
 
 #### Options
 
@@ -24,7 +25,7 @@ Samuel Eklund - sam@llnl.gov
 
     or
 
-    `./docker-run.sh -o centos`
+    `./docker-run.sh -f script.py -o centos`
 
     Available operating systems:
     - ubuntu_14_04 (Ubuntu 14.04)
@@ -40,6 +41,6 @@ Samuel Eklund - sam@llnl.gov
 
 If you would like to use the custom container you built using the `./custom-docker-build.sh` script, you can run the following command:
 
-`./custom-docker-run.sh /path/to/test_toolkit.py`
+`./custom-docker-run.sh -f /path/to/test_toolkit.py`
 
 Make sure to replace `test_toolkit.py` with the name of your Python script.

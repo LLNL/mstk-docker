@@ -9,6 +9,9 @@
 # built in docker-build.sh.                                         #
 #####################################################################
 
+# Set env vars
+. ./env-vars.sh
+
 usage()
 {
     echo -e "\n-f | --file"
@@ -22,9 +25,6 @@ usage()
     echo "-h | --help"
     echo -e "  Show this help message.\n"
 }
-
-# Set env vars
-. ./env-vars.sh
 
 while [ "$1" != "" ]; do
     case $1 in
@@ -45,7 +45,13 @@ while [ "$1" != "" ]; do
     shift
 done
 
-# Allows loading file into container from any directory
+# If no Python file provided, launch a Python interpreter shell
+if [ -z $PYTHON_FILE ]; then
+    docker run -it --rm mstk-$OS /usr/bin/python3
+    exit
+fi
+
+# If Python file is provided, determine to path and load into docker container upon launch
 PYTHON_FILE="$(abspath $PYTHON_FILE)"
 DIR="$(dirname $PYTHON_FILE)"
 FILE="$(basename $PYTHON_FILE)"
