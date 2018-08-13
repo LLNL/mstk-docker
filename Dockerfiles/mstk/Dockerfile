@@ -3,8 +3,6 @@ ARG IMAGE_NAME=mstk-${OS}-base
 
 FROM $IMAGE_NAME
 
-ARG REQUIREMENTS_FILE=requirements.txt
-
 LABEL maintainer='Samuel Eklund sam@llnl.gov'
 
 # Set environment variables
