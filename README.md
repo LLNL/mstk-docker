@@ -8,7 +8,7 @@ Samuel Eklund - sam@llnl.gov
 
 ### Instructions
 
-1. Make sure you have docker installed (https://www.docker.com/community-edition)
+1. Make sure you have docker installed (https://www.docker.com/community-edition).
 1. Copy the MIScriptingToolkit_vX.X.zip file to the Toolkit_zip_files folder. You may need to rename the file to fit the pattern above.
 1. Run `./docker-build.sh` to build the container.
     - Run `./custom-docker-build.sh -r /path/to/requirements.txt` to build a custom container.
