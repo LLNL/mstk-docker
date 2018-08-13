@@ -2,7 +2,7 @@
 .DS_STORE
 .vscode
 requirements.txt
-Toolkit-zip-files/*
+Toolkit_zip_files/*
 
 # Do not ignore (keep)
 !Toolkit_zip_files/.gitkeep
