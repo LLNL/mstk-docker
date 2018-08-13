@@ -46,12 +46,12 @@ while [ "$1" != "" ]; do
     shift
 done
 
+# Allows loading file into container from any directory
 if [ -z $PYTHON_FILE ]; then
     echo "Must specify a Python script (-f | --file)."
     exit
 fi
 
-# Allows loading file into container from any directory
 PYTHON_FILE="$(abspath $PYTHON_FILE)"
 DIR="$(dirname $PYTHON_FILE)"
 FILE="$(basename $PYTHON_FILE)"

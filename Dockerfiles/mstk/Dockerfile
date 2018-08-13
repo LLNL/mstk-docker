@@ -28,7 +28,7 @@ RUN tar -xf $toolkit_gzip
 WORKDIR /$toolkit_dir/$V_TOOLKIT_VERSION/$os_folder/$toolkit_folder
 RUN python3 setup.py install
 
-# Copy test script
-COPY $test_install /$toolkit_dir/$test_install
+# # Copy test script
+# COPY $test_install /$toolkit_dir/$test_install
 
-CMD python3 /$toolkit_dir/$test_install
+# CMD python3 /$toolkit_dir/$test_install

@@ -9,10 +9,13 @@
 # built in docker-build.sh.                                         #
 #####################################################################
 
+# Set env vars
+. ./env-vars.sh
+
 usage()
 {
     echo -e "\n-f | --file"
-    echo -e "Pass in a Python script to run in the container.\n"
+    echo -e "Pass in a Python script to run in the container (required).\n"
     echo "-o | --operating-system"
     echo "  Available operating systems:"
     echo "  - centos"
@@ -22,9 +25,6 @@ usage()
     echo "-h | --help"
     echo -e "  Show this help message.\n"
 }
-
-# Set env vars
-. ./env-vars.sh
 
 while [ "$1" != "" ]; do
     case $1 in
@@ -46,6 +46,11 @@ while [ "$1" != "" ]; do
 done
 
 # Allows loading file into container from any directory
+if [ -z $PYTHON_FILE ]; then
+    echo "Must specify a Python script (-f | --file)."
+    exit
+fi
+
 PYTHON_FILE="$(abspath $PYTHON_FILE)"
 DIR="$(dirname $PYTHON_FILE)"
 FILE="$(basename $PYTHON_FILE)"
