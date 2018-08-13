@@ -31,10 +31,10 @@ while [ "$1" != "" ]; do
             shift
             OS=$1
             ;;
-        -t | --toolkit-version )
-            shift
-            TOOLKIT_VERSION=$1
-            ;;
+        # -t | --toolkit-version )
+        #     shift
+        #     TOOLKIT_VERSION=$1
+        #     ;;
         -h | --help )
             shift
             usage
@@ -43,6 +43,8 @@ while [ "$1" != "" ]; do
     esac
     shift
 done
+
+TOOLKIT_FILENAME="MI_ScriptingToolkit_v${TOOLKIT_VERSION}.zip"
 
 # Check for existence of zip file.
 if [ ! -f Toolkit_zip_files/${TOOLKIT_FILENAME} ] ; then
@@ -56,5 +58,4 @@ docker build -t mstk-${OS}-base \
 
 docker build --rm -t mstk-${OS} \
     --build-arg OS=$OS \
-    --build-arg TOOLKIT_VERSION=${TOOLKIT_VERSION} \
     -f ${DOCKERFILE_FOLDER}/mstk/Dockerfile .

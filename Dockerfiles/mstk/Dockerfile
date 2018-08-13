@@ -14,6 +14,7 @@ ENV V_TOOLKIT_VERSION v$TOOLKIT_VERSION
 ENV zip_file Toolkit_zip_files/MI_ScriptingToolkit_${V_TOOLKIT_VERSION}.zip
 ENV toolkit_folder MIScriptingToolkit-${TOOLKIT_VERSION}
 ENV toolkit_gzip ${toolkit_folder}.tar.gz
+ENV toolkit_dir /mstk
 
 # Copy and install toolkit
 RUN mkdir $toolkit_dir
