@@ -15,7 +15,7 @@
 usage()
 {
     echo -e "\n-f | --file"
-    echo -e "Pass in a Python script to run in the container (required).\n"
+    echo -e "Pass in a Python script to run in the container.\n"
     echo "-o | --operating-system"
     echo "  Available operating systems:"
     echo "  - centos"
@@ -45,12 +45,13 @@ while [ "$1" != "" ]; do
     shift
 done
 
-# Allows loading file into container from any directory
+# If no Python file provided, launch a Python interpreter shell
 if [ -z $PYTHON_FILE ]; then
-    echo "Must specify a Python script (-f | --file)."
+    docker run -it --rm mstk-$OS /usr/bin/python3
     exit
 fi
 
+# If Python file is provided, determine to path and load into docker container upon launch
 PYTHON_FILE="$(abspath $PYTHON_FILE)"
 DIR="$(dirname $PYTHON_FILE)"
 FILE="$(basename $PYTHON_FILE)"
