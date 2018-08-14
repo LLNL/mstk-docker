@@ -1,5 +1,6 @@
 # Stuff to ignore
-.git*
-.vscode
-*.sh
-README.md
+# In this case, basically everything
+*
+
+# Stuff to keep
+! Toolkit_zip_files
