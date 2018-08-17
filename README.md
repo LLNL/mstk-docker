@@ -9,7 +9,7 @@ Samuel Eklund - sam@llnl.gov
 ### Instructions
 
 1. Make sure you have docker installed (https://www.docker.com/community-edition).
-1. Download the MIScriptingToolkit from https://mygranta.grantadesign.com/downloads.
+1. Download the MIScriptingToolkit from https://mygranta.grantadesign.com/downloads or from our [Confluence page](https://lc.llnl.gov/confluence/download/attachments/539984059/MI_ScriptingToolkit_v1.4.0.zip?version=1&modificationDate=1529704225000&api=v2).
 1. Copy the MIScriptingToolkit_vX.X.X.zip file to the Toolkit_zip_files folder. Currently only version 1.4.0 is supported.
 1. Run `./docker-build.sh` to build the container.
     - Run `./custom-docker-build.sh -r /path/to/requirements.txt` to build a custom container.
