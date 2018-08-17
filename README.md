@@ -15,8 +15,6 @@ Samuel Eklund - sam@llnl.gov
     - Run `./custom-docker-build.sh -r /path/to/requirements.txt` to build a custom container.
 1. Run `./docker-run.sh` to launch the container.
     - This will launch the docker container into a Python REPL.
-    - To pass in a file to execute in the Python environment, run `./docker-run.sh -f <path_to_file.py>`.
-    - For example, to run the `test_toolkit,py` file included in this repository, run `./docker-run.sh -f test_toolkit.py`.
     - Run `./custom-docker-run.sh` to launch the custom container.
 
 
@@ -38,9 +36,10 @@ Samuel Eklund - sam@llnl.gov
     - centos (CentOS 7)
     - debian (Debian 8)
 
-#### Run a custom container and load a custom script
-
-If you would like to use the custom container you built using the `./custom-docker-build.sh` script, you can run the following command:
+#### Load a custom script
+- To pass in a file to execute in the Python environment, run `./docker-run.sh -f <path_to_file.py>`.
+    - For example, to run the `test_toolkit.py` file included in this repository, run `./docker-run.sh -f test_toolkit.py`.
+- If you would like to use the custom container you built using the `./custom-docker-build.sh` script, you can run the following command:
 
 `./custom-docker-run.sh -f /path/to/test_toolkit.py`
 
