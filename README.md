@@ -1,24 +1,23 @@
 # mstk-docker
 
-## What is this?
+## Description
 This project runs the Granta MI:Scripting Toolkit for Python inside a docker container for dev purposes. It also provides a tool to build an image with customized Python packages.
 
-### Project Maintainer
-Samuel Eklund - sam@llnl.gov
+## Authors
+- Joe Eklund - https://github.com/joe-eklund
+- Sam Eklund - https://github.com/samueldeklund
 
-### Instructions
+## Getting Started
 
 1. Make sure you have docker installed (https://www.docker.com/community-edition).
-1. Download the MIScriptingToolkit from https://mygranta.grantadesign.com/downloads or from our [Confluence page](https://lc.llnl.gov/confluence/download/attachments/539984059/MI_ScriptingToolkit_v1.4.0.zip?version=1&modificationDate=1529704225000&api=v2).
+1. Download the MIScriptingToolkit from https://mygranta.grantadesign.com/downloads.
 1. Copy the MIScriptingToolkit_vX.X.X.zip file to the Toolkit_zip_files folder. Currently only version 1.4.0 is supported.
 1. Run `./docker-build.sh` to build the container.
     - Run `./custom-docker-build.sh -r /path/to/requirements.txt` to build a custom container.
 1. Run `./docker-run.sh` to launch the container.
-    - This will launch the docker container into a Python REPL.
     - Run `./custom-docker-run.sh` to launch the custom container.
 
-
-#### Options
+## Options
 
 - Running `./docker-build.sh` with no arguments will build a container with default settings. Run `./docker-build.sh -h` to see a list of options.
 
@@ -36,11 +35,28 @@ Samuel Eklund - sam@llnl.gov
     - centos (CentOS 7)
     - debian (Debian 8)
 
-#### Load a custom script
-- To pass in a file to execute in the Python environment, run `./docker-run.sh -f <path_to_file.py>`.
-    - For example, to run the `test_toolkit.py` file included in this repository, run `./docker-run.sh -f test_toolkit.py`.
-- If you would like to use the custom container you built using the `./custom-docker-build.sh` script, you can run the following command:
+### Run a custom container and load a custom script
+
+If you would like to use the custom container you built using the `./custom-docker-build.sh` script, you can run the following command:
 
 `./custom-docker-run.sh -f /path/to/test_toolkit.py`
 
 Make sure to replace `test_toolkit.py` with the name of your Python script.
+
+
+## Getting Involved
+
+If you'd like to get involved, you can email either of the authors, create an issue, or fork and open a PR.
+
+## Contributing
+
+Create an issue or fork and open a PR if you'd like to contribute.
+
+mstk-docker is distributed under the terms of the MIT license. All new
+contributions must be made under this license.
+
+## Release
+
+LLNL-CODE-766762
+
+SPDX-License-Identifier: MIT
