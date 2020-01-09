@@ -8,4 +8,4 @@ RUN apt-get update \
 RUN pip3 install --upgrade pip
 
 # Set environment variables
-ENV os_folder Ubuntu_16_04
+ENV os_folder Ubuntu16

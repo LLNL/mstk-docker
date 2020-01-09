@@ -9,4 +9,4 @@ RUN yum update -y \
 RUN pip3 install --upgrade pip
 
 # Set environment variables
-ENV os_folder CentOS
+ENV os_folder CentOS7

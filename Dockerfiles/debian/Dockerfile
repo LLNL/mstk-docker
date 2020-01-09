@@ -8,4 +8,4 @@ RUN apt-get update \
 RUN pip3 install --upgrade pip
 
 # Set environment variables
-ENV os_folder Debian
+ENV os_folder Debian9

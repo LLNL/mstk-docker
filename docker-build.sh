@@ -14,8 +14,7 @@ usage()
     echo "  Available operating systems:"
     echo "  - centos"
     echo "  - debian"
-    echo "  - ubuntu_14_04"
-    echo -e "  - ubuntu_16_04 (default)\n"
+    echo "  - ubuntu_16_04"
     # echo "-t | --toolkit-version"
     # echo -e "Choose the tookit version when building. Must have a corresponding zip file in Toolkit_zip_files folder. Valid options are: "1.4, 1.3".\n"
     echo "-h | --help"
@@ -44,7 +43,7 @@ while [ "$1" != "" ]; do
     shift
 done
 
-TOOLKIT_FILENAME="MI_ScriptingToolkit_v${TOOLKIT_VERSION}.zip"
+TOOLKIT_FILENAME="MI_ScriptingToolkit_v${TOOLKIT_VERSION}_for_Python.zip"
 
 # Check for existence of zip file.
 if [ ! -f Toolkit_zip_files/${TOOLKIT_FILENAME} ] ; then
