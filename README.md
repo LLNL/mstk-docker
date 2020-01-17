@@ -1,16 +1,17 @@
 # mstk-docker
 
 ## Description
-This project runs the Granta MI:Scripting Toolkit for Python inside a docker container for dev purposes. It also provides a tool to build an image with customized Python packages.
+This project runs the Granta MI:Scripting Toolkit V2 for Python inside a docker container for develpment purposes.
 
-## Authors
-- Joe Eklund - https://github.com/joe-eklund
-- Sam Eklund - https://github.com/samueldeklund
+
 
 ## Getting Started
 
-1. Make sure you have docker installed (https://www.docker.com/community-edition).
-1. Download the MIScriptingToolkit from https://mygranta.grantadesign.com/downloads.
+1. Make sure you have docker installed.
+    - [Download for Windows or Mac](https://www.docker.com/products/docker-desktop)
+    - [Instructions for Linux flavors](https://docs.docker.com/install/).
+1. [Download the MIScriptingToolkit V2](https://grantadesign.com/industry/support/).
+    - Click on "Restricted" on the left side and login with your My Granta account.
 1. Copy the MIScriptingToolkit_vX.X.X.zip file to the Toolkit_zip_files folder. Currently only version 1.4.0 is supported.
 1. Run `./docker-build.sh` to build the container.
     - Run `./custom-docker-build.sh -r /path/to/requirements.txt` to build a custom container.
@@ -43,6 +44,11 @@ If you would like to use the custom container you built using the `./custom-dock
 
 Make sure to replace `test_toolkit.py` with the name of your Python script.
 
+## Authors
+- Data Lifecycle Management Team - https://github.com/orgs/LLNL/teams/dlm
+- Joe Eklund - https://github.com/joe-eklund
+- Sam Eklund - https://github.com/samueldeklund
+- Sam Maphey - https://github.com/sammaphey 
 
 ## Getting Involved
 

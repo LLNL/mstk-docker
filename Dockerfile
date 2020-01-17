@@ -1,6 +1,6 @@
 FROM python:3.7
 
-LABEL maintainer='Data Lifecycle Management Team. dlm@llnl.gov'
+LABEL maintainer='Data Lifecycle Management Team - dlm@llnl.gov'
 
 # Set environment variables
 ENV TOOLKIT_VERSION=2.0.0
@@ -17,7 +17,15 @@ RUN mkdir $toolkit_dir
 WORKDIR $toolkit_dir
 COPY $zip_file $zip_file
 RUN unzip $zip_file
-# Note: $os_folder var comes from OS-specific Dockerfile
 WORKDIR /$toolkit_dir/Installers/$os_folder/
 RUN pip install $toolkit_whl
-ENTRYPOINT [ "/bin/bash" ]
+
+# Copy and install any additional reqs
+RUN mkdir /add_reqs
+WORKDIR /add_reqs
+COPY requirements.txt requirements.txt
+RUN pip install -r requirements.txt
+RUN mkdir /data
+WORKDIR /
+
+CMD [ "/bin/bash" ]
