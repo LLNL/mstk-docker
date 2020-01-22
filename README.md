@@ -27,17 +27,24 @@ This project runs the Granta MI:Scripting Toolkit V2 for Python inside a docker 
 
 ## Running the container
 
-1. Run `docker-compose run mstk` to run the container and drop into an interactive shell.
-1. Run `docker-compose run mstk python` to run the container and drop into a Python REPL. Alternativly, you can uncomment the `command` portion of the `docker-compose.yml` file and run `docker-compose run mstk` to acheive the same effect.
+1. Run `docker-compose run mstk` to run the container and drop into an interactive shell. This requires you be in the directory with the included `docker-compose.yml` file. 
+    - Alternatively, you can run `docker run -it mstk` from anywhere, given you have built the image.
+1. Run `docker-compose run mstk python` to run the container and drop into a Python REPL. 
+    - Alternatively, you can uncomment the `command` portion of the `docker-compose.yml` file and run `docker-compose run mstk` to acheive the same effect.
+    - Alternatively, you can run `docker run -it mstk python` from anywhere, given you have built the image.
     - You can verify you have the toolkit available by typing `from GRANTA_MIScriptingToolkit import granta as gdl` into your REPL.
 
 ## Options
 
 - If you would like to mount a folder from your host into the mstk docker container, uncomment the `volumes` section of the `docker-compose.yml` file and put in the path to the folder you would like to mount.
 
+## Documentation
+
+- The Granta:MI Scripting Toolkit documentation can be found in the zip file that was downloaded. Unzip the file and open up the docs index file at `MI_ScriptingToolkit_v2.0.0_for_Python/HTML5/index.htm`.
+
 ## Extending this image
 
-If you would like to build upon this docker image you must follow the above build instructions first listed in the **Getting Started** section. Then in your Dockerfile begin with `FROM mstk-docker_mstk`. That's it! Your new docker image will now have the Granta:MI Scripting Toolkit available in the system Python environment.
+If you would like to build upon this docker image you must follow the above build instructions first listed in the **Getting Started** section. Then in your Dockerfile begin with `FROM mstk`. That's it! Your new docker image will now have the Granta:MI Scripting Toolkit available in the system Python environment.
 
 ## Authors
 - Data Lifecycle Management Team - https://github.com/orgs/LLNL/teams/dlm
