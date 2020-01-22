@@ -4,6 +4,9 @@
 This project runs the Granta MI:Scripting Toolkit V2 for Python inside a docker container for develpment purposes.
 
 
+## Requiremenets
+- Docker and Docker Compose
+- A My Granta account
 
 ## Getting Started
 
@@ -12,15 +15,22 @@ This project runs the Granta MI:Scripting Toolkit V2 for Python inside a docker 
     - [Instructions for Linux flavors](https://docs.docker.com/install/).
 1. [Download the MIScriptingToolkit V2](https://grantadesign.com/industry/support/).
     - Click on "Restricted" on the left side and login with your My Granta account.
-1. Copy the MIScriptingToolkit_vX.X.X.zip file to the Toolkit_zip_files folder. Currently only version 1.4.0 is supported.
-1. Run `./docker-build.sh` to build the container.
-    - Run `./custom-docker-build.sh -r /path/to/requirements.txt` to build a custom container.
-1. Run `./docker-run.sh` to launch the container.
-    - Run `./custom-docker-run.sh` to launch the custom container.
+    - Click on "Download" on the left side in the Download Software section.
+    - Select the Granta MI version that you require. The MI:Scripting Toolkit V2 requires  at least Granta MI v11.0.
+    - Select "Options".
+    - Scroll down to "MI:Scripting Toolkit v2.0 for Python" and download the zip file.
+1. Copy the zip file to the `Toolkit_zip_files` folder. Currently only version 2.0 is supported.
+
+1. Run `docker-compose build` to build the container.
+
+## Running the container
+
+1. Run `docker-compose run mstk` to run the container and drop into an interactive shell.
+1. Run `docker-compose run mstk python` to run the container and drop into a Python REPL. Alternativly, you can uncomment the `command` portion of the `docker-compose.yml` file and run `docker-compose run mstk` to acheive the same effect.
 
 ## Options
 
-- Running `./docker-build.sh` with no arguments will build a container with default settings. Run `./docker-build.sh -h` to see a list of options.
+- If you would like to mount a folder into the mstk docker container, uncomment the `volumes` section of the `docker-compose.yml` file and put in the path to the folder you would like to mount.
 
 - You can specify the operating system when building and running the scripts. For example:
 

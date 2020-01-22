@@ -28,4 +28,4 @@ RUN pip install -r requirements.txt
 RUN mkdir /data
 WORKDIR /
 
-CMD [ "/bin/bash" ]
+CMD ["/bin/bash"]
