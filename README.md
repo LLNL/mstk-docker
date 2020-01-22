@@ -19,50 +19,31 @@ This project runs the Granta MI:Scripting Toolkit V2 for Python inside a docker 
     - Select the Granta MI version that you require. The MI:Scripting Toolkit V2 requires  at least Granta MI v11.0.
     - Select "Options".
     - Scroll down to "MI:Scripting Toolkit v2.0 for Python" and download the zip file.
-1. Copy the zip file to the `Toolkit_zip_files` folder. Currently only version 2.0 is supported.
+1. Copy the zip file to the `Toolkit_zip_files` folder. 
+    > **_NOTE:_** Currently only version 2.0 of the scripting toolkit is supported.
 
 1. Run `docker-compose build` to build the container.
+    > **_NOTE:_** If you would like to install additional python packages into the image you can list these in the included `requirements.txt` file. You will then need to run a build command again.
 
 ## Running the container
 
 1. Run `docker-compose run mstk` to run the container and drop into an interactive shell.
 1. Run `docker-compose run mstk python` to run the container and drop into a Python REPL. Alternativly, you can uncomment the `command` portion of the `docker-compose.yml` file and run `docker-compose run mstk` to acheive the same effect.
+    - You can verify you have the toolkit available by typing `from GRANTA_MIScriptingToolkit import granta as gdl` into your REPL.
 
 ## Options
 
-- If you would like to mount a folder into the mstk docker container, uncomment the `volumes` section of the `docker-compose.yml` file and put in the path to the folder you would like to mount.
+- If you would like to mount a folder from your host into the mstk docker container, uncomment the `volumes` section of the `docker-compose.yml` file and put in the path to the folder you would like to mount.
 
-- You can specify the operating system when building and running the scripts. For example:
+## Extending this image
 
-    `./docker-build.sh -o debian`
-
-    or
-
-    `./docker-run.sh -o centos`
-
-    Available operating systems:
-    - ubuntu_14_04 (Ubuntu 14.04)
-    - ubuntu_16_04 (Ubuntu 16.04, default)
-    - centos (CentOS 7)
-    - debian (Debian 8)
-
-### Run a custom container and load a custom script
-
-If you would like to use the custom container you built using the `./custom-docker-build.sh` script, you can run the following command:
-
-`./custom-docker-run.sh -f /path/to/test_toolkit.py`
-
-Make sure to replace `test_toolkit.py` with the name of your Python script.
+If you would like to build upon this docker image you must follow the above build instructions first listed in the **Getting Started** section. Then in your Dockerfile begin with `FROM mstk-docker_mstk`. That's it! Your new docker image will now have the Granta:MI Scripting Toolkit available in the system Python environment.
 
 ## Authors
 - Data Lifecycle Management Team - https://github.com/orgs/LLNL/teams/dlm
 - Joe Eklund - https://github.com/joe-eklund
 - Sam Eklund - https://github.com/samueldeklund
 - Sam Maphey - https://github.com/sammaphey 
-
-## Getting Involved
-
-If you'd like to get involved, you can email either of the authors, create an issue, or fork and open a PR.
 
 ## Contributing
 
