@@ -1,7 +1,7 @@
 # mstk-docker
 
 ## Description
-This project runs the Granta MI:Scripting Toolkit V2 for Python inside a docker container for develpment purposes.
+This project runs the Granta MI:Scripting Toolkit V2 for Python inside a docker container for development purposes.
 
 
 ## Requiremenets
