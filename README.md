@@ -23,7 +23,7 @@ This project runs the Granta MI:Scripting Toolkit V2 for Python inside a docker 
     > **_NOTE:_** Currently only version 2.0 of the scripting toolkit is supported.
 
 1. Run `docker-compose build` to build the container.
-    > **_NOTE:_** If you would like to install additional python packages into the image you can list these in the included `requirements.txt` file. You will then need to run a build command again.
+    > **_NOTE:_** If you would like to install additional python packages into the image you can list these in the included `requirements.txt` file. You will then need to run the previous build command again.
 
 ## Running the container
 
