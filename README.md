@@ -4,7 +4,7 @@
 This project runs the Granta MI:Scripting Toolkit V2 for Python inside a docker container for development purposes.
 
 
-## Requiremenets
+## Requirements
 - Docker and Docker Compose
 - A My Granta account
 
