@@ -1,0 +1,10 @@
+version: '3'
+
+services:
+  mstk:
+    build: .
+    image: mstk:latest
+    container_name: mstk
+    #command: python # Uncomment to drop directly into a Python REPL. 
+    #volumes: # Uncomment this section to mount a folder into the container's data folder.
+      #- <your_folder_to_mount>/:/data
